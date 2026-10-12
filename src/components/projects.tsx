@@ -42,8 +42,8 @@ export default function Projects({ language }: { language: "en" | "pt" }) {
       detailsLabel={t("projectDetails")}
       hint={
         language === "pt"
-          ? "Role para explorar os dois projetos"
-          : "Scroll to explore both projects"
+          ? "Role para explorar entre os projetos"
+          : "Scroll to explore the projects"
       }
       previousLabel={
         language === "pt" ? "Projeto anterior" : "Previous project"
