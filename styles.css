@@ -1,6 +1,4 @@
-/* One type family,
-a cobalt object,
-and plenty of room to read. */
+/* Shared portfolio sections; the reference-led hero lives in hero.css. */
 :root {
   color-scheme: dark;
   --bg: #080e1b;
