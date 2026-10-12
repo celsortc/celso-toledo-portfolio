@@ -92,22 +92,11 @@
   function prepareTagline() {
     const tagline = document.querySelector(".hero-tagline p");
     const text = translate("heroTagline");
-    let index = 0;
     const fragments = text.split(/(\s+)/).map((part) => {
       if (/^\s+$/.test(part)) return document.createTextNode(part);
       const word = document.createElement("span");
       word.className = "tagline-word";
-      for (const letter of part) {
-        const span = document.createElement("span");
-        span.className = "tagline-letter";
-        span.textContent = letter;
-        span.style.setProperty(
-          "--letter-delay",
-          `${Math.min(index * 12, 480)}ms`,
-        );
-        word.append(span);
-        index += 1;
-      }
+      word.textContent = part;
       return word;
     });
     const accessibleText = document.createElement("span");

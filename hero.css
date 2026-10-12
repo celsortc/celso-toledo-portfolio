@@ -136,10 +136,10 @@ body.menu-open {
 .hero-portrait {
   position: absolute;
   z-index: 2;
-  top: 50%;
+  top: calc(50% + 6px);
   left: 50%;
-  width: clamp(65px, 10vw, 129px);
-  height: clamp(110px, 17vw, 218px);
+  width: clamp(75px, 11.5vw, 148px);
+  height: clamp(126px, 19.5vw, 250px);
   transform: translate(-50%, -50%);
   border-radius: 100px;
   overflow: hidden;
@@ -297,18 +297,13 @@ body.menu-open {
   .tagline-word {
     display: inline-block;
     white-space: nowrap;
+    transition: color 250ms ease;
   }
-  .tagline-letter {
-    transition: color 180ms ease;
-    transition-delay: 0s;
-  }
-  .hero-tagline p:hover .tagline-letter {
+  .tagline-word:hover {
     color: var(--ink);
-    transition-delay: var(--letter-delay);
   }
-  :root[data-motion="reduced"] .hero-tagline p:hover .tagline-letter {
+  :root[data-motion="reduced"] .tagline-word {
     transition-duration: 0s;
-    transition-delay: 0s;
   }
   .icon-button:hover {
     color: var(--ink);
