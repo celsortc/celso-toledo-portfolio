@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080e1b">
+  <meta name="description" content="Celso Toledo — Software Developer. Projects, experience and a curiosity for solving real problems with code.">
+  <title>Celso Toledo — Software Developer</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="scripts/i18n.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Celso Toledo, home"><span class="brand-mark" aria-hidden="true">c<span>.</span></span>Celso Toledo</a>
+    <nav aria-label="Main navigation" data-i18n-aria="navigation">
+      <a href="#work" data-i18n="navWork">Projects</a>
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
+    </nav>
+    <div class="language-switch" role="group" aria-label="Language" data-i18n-aria="language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero section-shell" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="intro-line"><span class="status-dot" aria-hidden="true"></span><span data-i18n="role">Software Developer</span></p>
+        <h1 id="hero-title" data-i18n-html="heroTitle">Software<br>with purpose.</h1>
+        <p class="hero-description" data-i18n="heroDescription">I’m Celso. I turn everyday problems into simpler solutions through code, curiosity and a little persistence.</p>
+        <a class="button button-primary" href="#work"><span data-i18n="viewWork">Explore my projects</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+        <a class="hero-contact" href="mailto:celsortc@outlook.com" data-i18n="talk">Let’s talk</a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-halo"></div>
+        <svg class="sculpture" viewBox="0 0 640 620" fill="none">
+          <defs>
+            <linearGradient id="ribbon-face" x1="170" y1="60" x2="450" y2="520" gradientUnits="userSpaceOnUse"><stop stop-color="#D2DDFF"/><stop offset=".24" stop-color="#6A8AFF"/><stop offset=".6" stop-color="#476CFF"/><stop offset="1" stop-color="#193283"/></linearGradient>
+            <linearGradient id="ribbon-side" x1="130" y1="160" x2="400" y2="500" gradientUnits="userSpaceOnUse"><stop stop-color="#3E5CC2"/><stop offset="1" stop-color="#101B50"/></linearGradient>
+            <linearGradient id="ribbon-inner" x1="190" y1="140" x2="420" y2="440" gradientUnits="userSpaceOnUse"><stop stop-color="#101D51"/><stop offset="1" stop-color="#749AFF"/></linearGradient>
+          </defs>
+          <ellipse class="art-orbit" cx="320" cy="530" rx="210" ry="44" stroke="#476CFF" stroke-opacity=".25"/>
+          <g class="ribbon ribbon-back" opacity=".65" transform="translate(85 -60)">
+            <path d="M162 212 328 112 488 206 488 399 323 499 162 405Z M225 248 225 367 322 423 425 362 425 244 328 186Z" fill="url(#ribbon-side)" fill-rule="evenodd"/>
+            <path d="m162 212 0 193 25 14V227Zm0 0 25 15 166-100-25-15Z" fill="#7595F0"/>
+          </g>
+          <g class="ribbon ribbon-middle" transform="translate(5 -5)">
+            <path d="M162 212 328 112 488 206 488 399 323 499 162 405Z M225 248 225 367 322 423 425 362 425 244 328 186Z" fill="url(#ribbon-face)" fill-rule="evenodd"/>
+            <path d="m162 212 0 193 25 14V227Zm0 0 25 15 166-100-25-15Z" fill="#AAC2FF"/>
+            <path d="m225 248 103-62 97 58-24 14-73-43-78 47v91l-25 14Z" fill="url(#ribbon-inner)"/>
+            <path d="m488 206 25 15v193l-165 100-25-15 165-100Z" fill="url(#ribbon-side)"/>
+          </g>
+          <g class="ribbon ribbon-front" transform="translate(-75 65)">
+            <path d="M162 212 328 112 488 206 488 399 323 499 162 405Z M225 248 225 367 322 423 425 362 425 244 328 186Z" fill="url(#ribbon-face)" fill-rule="evenodd"/>
+            <path d="m162 212 0 193 25 14V227Zm0 0 25 15 166-100-25-15Z" fill="#AAC2FF"/>
+            <path d="m225 248 103-62 97 58-24 14-73-43-78 47v91l-25 14Z" fill="url(#ribbon-inner)"/>
+            <path d="m488 206 25 15v193l-165 100-25-15 165-100Z" fill="url(#ribbon-side)"/>
+          </g>
+        </svg>
+        <span class="art-caption" data-i18n="artCaption">Small parts. A bigger picture.</span>
+      </div>
+      <div class="hero-bottom"><a href="#work" class="scroll-cue"><span class="scroll-line" aria-hidden="true"></span><span data-i18n="scroll">A little further down</span></a><span data-i18n="heroStack">Built with HTML, CSS & JavaScript</span></div>
+    </section>
+    <section class="work section-shell" id="work" aria-labelledby="work-title">
+      <div class="section-heading"><h2 id="work-title" data-i18n="workTitle">Learning by building.</h2><p data-i18n="workIntro">Real problems, hands-on projects. Here’s what I’ve been working on.</p></div>
+      <div id="project-list"></div>
+    </section>
+    <section class="about section-shell" id="about" aria-labelledby="about-title">
+      <div class="about-heading"><p class="section-kicker" data-i18n="aboutLabel">The person behind the code</p><h2 id="about-title" data-i18n-html="aboutTitle">Curiosity first.<br>Code follows.</h2><div class="about-signature">Celso Toledo<span aria-hidden="true">.</span></div></div>
+      <div class="about-body"><p class="lead" data-i18n="aboutLead">I like understanding how things work. Even more, I like finding a way to make them work better.</p><p data-i18n="aboutBody">I’m a software developer and a Systems Analysis and Development student at Facens. My professional experience brought me close to real users, technical problems and opportunities to simplify everyday processes.</p><p data-i18n="aboutFocus">Today I build for the web, study React and work on an academic project with Java and MySQL. I’m growing toward fullstack development, with a particular interest in back-end.</p><div class="skills"><h3 data-i18n="skillsTitle">What I work with</h3><div class="skill-group"><span data-i18n="web">Web development</span><p>HTML <span>/</span> CSS <span>/</span> JavaScript</p></div><div class="skill-group"><span data-i18n="learning">Building & learning</span><p>Java <span>/</span> SQL <span>/</span> MySQL <span>/</span> React</p></div><div class="skill-group"><span data-i18n="toolkit">Along the way</span><p>Git <span>/</span> GitHub <span>/</span> Figma <span>/</span> Python</p></div></div></div>
+    </section>
+    <section class="experience section-shell" aria-labelledby="experience-title">
+      <div class="section-heading"><h2 id="experience-title" data-i18n="experienceTitle">From problems to progress.</h2><p data-i18n="experienceIntro">The experience that shapes the way I build.</p></div>
+      <div class="experience-layout"><article class="experience-story"><div class="experience-top"><span data-i18n="experienceDate">Jun 2022 — present</span><span data-i18n="experienceType">Professional experience</span></div><h3 data-i18n="experienceRole">Assistant · Department of Education</h3><p class="organization" data-i18n="organization">Municipality of Cesário Lange</p><p data-i18n="experienceBody">Supporting users and solving technical problems gave me a practical view of how technology can help people. I built an invoice registration solution with AppSheet and Google Sheets to simplify data entry and make information easier to find.</p><div class="experience-callout"><span aria-hidden="true">↳</span><p data-i18n="experienceCallout">A repetitive task became a simpler process. That’s the kind of problem I enjoy solving.</p></div></article><div class="education"><h3 data-i18n="education">Always learning</h3><h4 data-i18n="degree">Systems Analysis & Development</h4><p>Facens</p><p class="education-date" data-i18n="educationDate">2026 — expected Jul 2028</p><div class="education-note"><span class="status-dot" aria-hidden="true"></span><p data-i18n="reactStudy">Currently deepening my knowledge of React.</p></div><p class="languages" data-i18n="spoken">Portuguese & fluent English</p></div></div>
+    </section>
+    <section class="contact section-shell" id="contact" aria-labelledby="contact-title"><div class="contact-top"><p class="intro-line"><span class="status-dot" aria-hidden="true"></span><span data-i18n="opportunities">Open to new opportunities</span></p><h2 id="contact-title" data-i18n-html="contactTitle">Let’s build<br>something useful.</h2><p data-i18n="contactBody">Have a project in mind or a place on your team? I’d love to hear about it.</p></div><div class="email-row"><a href="mailto:celsortc@outlook.com">celsortc@outlook.com</a><button class="copy-email" type="button" aria-label="Copy email address" data-i18n-aria="copyEmail"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M15 8V4H4v11h4"/></svg></button></div><div class="contact-bottom"><div class="social-links"><a href="https://github.com/celsortc" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/celsotoledo1/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://wa.me/5515997584689" target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a></div><p data-i18n="availability">Remote, hybrid or on-site · Sorocaba & São Paulo</p></div><p class="copy-status" aria-live="polite" role="status"></p></section>
+  </main>
+  <footer class="site-footer section-shell"><span>© <span id="year">2026</span> Celso Toledo</span><span data-i18n="footerNote">Made with curiosity. And code.</span><button type="button" class="motion-toggle" aria-pressed="false" data-i18n="motionOff">Pause animations</button><a href="#home" data-i18n="backTop">Back to top</a></footer>
+</body>
+</html>
