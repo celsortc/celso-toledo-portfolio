@@ -555,7 +555,7 @@ h1 {
 .inventory-tag {
   position: absolute;
   right: 0;
-  bottom: 2%;
+  bottom: 10%;
   padding: 13px 20px;
   background: #c8e8da;
   color: #1a3935;
