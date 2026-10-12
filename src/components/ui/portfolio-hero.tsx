@@ -130,7 +130,7 @@ export default function Component({
   // Keep the requested fullscreen mobile navigation usable by keyboard and touch.
   useEffect(() => {
     if (!isMenuOpen) return;
-    const mobile = window.matchMedia("(max-width: 767px)").matches;
+    const mobile = window.matchMedia("(max-width: 1279px)").matches;
     const previousOverflow = document.body.style.overflow;
     if (mobile) {
       document.body.style.overflow = "hidden";
@@ -164,6 +164,13 @@ export default function Component({
       document.removeEventListener("keydown", onKeyDown);
     };
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 1280px)');
+    const closeOnDesktop = () => { if (desktop.matches) setIsMenuOpen(false); };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -212,9 +219,9 @@ export default function Component({
     >
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6">
-        <nav className="flex items-center justify-between max-w-screen-2xl mx-auto">
+        <nav aria-label={language === 'pt' ? 'Navegação principal' : 'Main navigation'} className="flex items-center justify-between max-w-screen-2xl mx-auto">
           {/* Menu Button */}
-          <div className="relative">
+          <div className="relative xl:hidden">
             <button
               ref={buttonRef}
               type="button"
@@ -246,7 +253,7 @@ export default function Component({
                   backgroundColor: isDark ? "hsl(0 0% 0%)" : "hsl(0 0% 98%)",
                 }}
               >
-                <div className="reference-mobile-menu-top md:hidden">
+                <div className="reference-mobile-menu-top xl:hidden">
                   <button
                     data-mobile-close
                     type="button"
@@ -332,6 +339,15 @@ export default function Component({
             {signature}
           </div>
 
+          <div className="reference-desktop-links hidden xl:flex">
+            {menuItems.map(item => <a key={item.label} href={item.href}>{item.label}</a>)}
+          </div>
+
+          <div className="reference-header-actions">
+            {onLanguageChange && <div className="reference-desktop-language hidden xl:flex" role="group" aria-label={language === 'pt' ? 'Idioma' : 'Language'}>
+              <button type="button" aria-pressed={language === 'en'} onClick={() => onLanguageChange('en')}>EN</button>
+              <button type="button" aria-pressed={language === 'pt'} onClick={() => onLanguageChange('pt')}>PT</button>
+            </div>}
           {/* Theme Toggle */}
           <button
             type="button"
@@ -350,6 +366,7 @@ export default function Component({
               }}
             />
           </button>
+          </div>
         </nav>
       </header>
 
