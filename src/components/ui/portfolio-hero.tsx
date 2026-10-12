@@ -288,17 +288,17 @@ export default function Component({
                     className="block text-lg md:text-xl font-bold tracking-tight py-1.5 px-2 cursor-pointer transition-colors duration-300"
                     style={{
                       color: item.highlight
-                        ? "#C3E41D"
+                        ? "var(--accent)"
                         : isDark
                           ? "hsl(0 0% 100%)"
                           : "hsl(0 0% 10%)",
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#C3E41D";
+                      e.currentTarget.style.color = "var(--accent)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.color = item.highlight
-                        ? "#C3E41D"
+                        ? "var(--accent)"
                         : isDark
                           ? "hsl(0 0% 100%)"
                           : "hsl(0 0% 10%)";
@@ -421,7 +421,7 @@ export default function Component({
                 direction="top"
                 className="reference-name font-bold text-[100px] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
                 style={{
-                  color: "#C3E41D",
+                  color: "var(--accent)",
                   fontFamily: "'Fira Code', monospace",
                 }}
               />
@@ -434,7 +434,7 @@ export default function Component({
                 direction="top"
                 className="reference-name font-bold text-[100px] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
                 style={{
-                  color: "#C3E41D",
+                  color: "var(--accent)",
                   fontFamily: "'Fira Code', monospace",
                 }}
               />

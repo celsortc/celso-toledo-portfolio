@@ -48,8 +48,8 @@
   color: var(--ink);
 }
 .reference-language button[aria-pressed="true"] {
-  border-color: #c3e41d;
-  color: #c3e41d;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 .reference-mobile-menu-top {
   display: none;
@@ -99,7 +99,7 @@
 }
 @media (hover: hover) and (pointer: fine) {
   .reference-desktop-links a:hover {
-    color: #c3e41d;
+    color: var(--accent);
   }
 }
 .reference-menu button,
