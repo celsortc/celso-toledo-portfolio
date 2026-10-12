@@ -1122,8 +1122,6 @@ h1 {
     animation: none !important;
     transition-duration: 0s !important;
   }
-  .sculpture,
-  .ribbon,
   .axis-preview,
   .inventory-grid {
     transform: none !important;
