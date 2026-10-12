@@ -9,7 +9,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
   const motionButton = document.querySelector(".motion-toggle");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let paused = false;
-  let motionContext;
   let refreshFrame;
   try {
     paused = localStorage.getItem("portfolio-motion") === "paused";
@@ -35,38 +34,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
     );
   }
   function configureMotion() {
-    motionContext?.revert();
-    motionContext = undefined;
     updateMotionButton();
-    if (paused || reducedMotion.matches) return;
-    motionContext = gsap.matchMedia();
-    motionContext.add(
-      "(min-width: 761px) and (prefers-reduced-motion: no-preference)",
-      () => {
-        gsap.to(".axis-preview", {
-          rotation: 1,
-          y: -12,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".axis-art",
-            start: "top 90%",
-            end: "bottom 30%",
-            scrub: 0.6,
-          },
-        });
-        gsap.to(".inventory-grid", {
-          rotation: 2,
-          y: -10,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".doae-art",
-            start: "top 90%",
-            end: "bottom 30%",
-            scrub: 0.6,
-          },
-        });
-      },
-    );
+    refreshMotion();
   }
   function refreshMotion() {
     if (controller.signal.aborted) return;
@@ -108,7 +77,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
   });
   import.meta.hot?.dispose(() => {
     controller.abort();
-    motionContext?.revert();
     cancelAnimationFrame(refreshFrame);
   });
 })();
