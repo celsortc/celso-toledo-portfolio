@@ -289,14 +289,18 @@ export default function Component({
                   >
                     <X strokeWidth={2} />
                   </button>
-                  <span
+                  <a
+                    href="#home"
+                    className="reference-home-link text-4xl"
+                    aria-label={language === "pt" ? "Ir para o início" : "Go to home"}
+                    onClick={() => setIsMenuOpen(false)}
                     style={{
                       fontFamily:
                         "'Brush Script MT', 'Lucida Handwriting', cursive",
                     }}
                   >
                     {signature}
-                  </span>
+                  </a>
                 </div>
                 {menuItems.map((item) => (
                   <a
@@ -353,15 +357,17 @@ export default function Component({
           </div>
 
           {/* Signature */}
-          <div
-            className="text-4xl"
+          <a
+            href="#home"
+            className="reference-home-link text-4xl"
+            aria-label={language === "pt" ? "Ir para o início" : "Go to home"}
             style={{
               color: isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)",
               fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive",
             }}
           >
             {signature}
-          </div>
+          </a>
 
           <div className="reference-desktop-links hidden xl:flex">
             {menuItems.map((item) => (

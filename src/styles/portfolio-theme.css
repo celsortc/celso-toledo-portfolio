@@ -81,6 +81,17 @@
 .reference-mobile-menu-top {
   display: none;
 }
+.reference-home-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  min-height: 48px;
+  justify-self: start;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
 .reference-header-actions {
   display: flex;
   align-items: center;
