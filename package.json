@@ -2,9 +2,31 @@
   "name": "celso-toledo-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Celso Toledo's portfolio in HTML, CSS and vanilla JavaScript",
+  "type": "module",
+  "description": "Celso Toledo's portfolio with the supplied React hero component",
   "scripts": {
-    "dev": "node scripts/serve.cjs",
-    "check": "node --check scripts/main.js && node --check scripts/i18n.js && node --check scripts/serve.cjs"
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4174 --strictPort",
+    "check": "tsc --noEmit && node --check scripts/main.js && node --check scripts/i18n.js"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "gsap": "^3.15.0",
+    "lucide-react": "^1.55.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
   }
 }

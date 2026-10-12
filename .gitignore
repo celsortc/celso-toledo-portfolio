@@ -3,6 +3,8 @@
 .tools/
 .qa/
 node_modules/
+dist/
+*.tsbuildinfo
 PERFIL-CELSO-TOLEDO.md
 design-notes.md
 skills-lock.json
