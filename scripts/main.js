@@ -13,6 +13,82 @@
 
   document.querySelector("#year").textContent = new Date().getFullYear();
 
+  const menu = document.querySelector("#site-menu");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const themeToggle = document.querySelector(".theme-toggle");
+  let theme = "dark";
+  try {
+    theme =
+      localStorage.getItem("portfolio-theme") === "light" ? "light" : "dark";
+  } catch {
+    /* Theme preferences are optional. */
+  }
+
+  function applyTheme() {
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content =
+      theme === "dark" ? "#000000" : "#fafafa";
+    themeToggle.setAttribute("aria-checked", String(theme === "dark"));
+    themeToggle.dataset.i18nAria =
+      theme === "dark" ? "themeLight" : "themeDark";
+    themeToggle.setAttribute(
+      "aria-label",
+      translate(themeToggle.dataset.i18nAria),
+    );
+  }
+  applyTheme();
+  themeToggle.addEventListener("click", () => {
+    theme = theme === "dark" ? "light" : "dark";
+    applyTheme();
+    try {
+      localStorage.setItem("portfolio-theme", theme);
+    } catch {
+      /* Still works without storage. */
+    }
+  });
+
+  menuToggle.addEventListener("click", () => {
+    menu.showModal();
+    menuToggle.setAttribute("aria-expanded", "true");
+    document.body.classList.add("menu-open");
+  });
+  document
+    .querySelector(".menu-close")
+    .addEventListener("click", () => menu.close());
+  menu.addEventListener("close", () => {
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("menu-open");
+  });
+  menu.addEventListener("click", (event) => {
+    if (event.target !== menu) return;
+    const bounds = menu.getBoundingClientRect();
+    if (
+      event.clientX < bounds.left ||
+      event.clientX > bounds.right ||
+      event.clientY < bounds.top ||
+      event.clientY > bounds.bottom
+    )
+      menu.close();
+  });
+  menu.querySelectorAll("nav a").forEach((link) =>
+    link.addEventListener("click", () => {
+      menu.close();
+      const target = document.querySelector(link.getAttribute("href"));
+      target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+    }),
+  );
+
+  document.querySelectorAll(".name-line").forEach((line) => {
+    const letters = [...line.textContent].map((letter) => {
+      const span = document.createElement("span");
+      span.className = "name-letter";
+      span.textContent = letter;
+      return span;
+    });
+    line.replaceChildren(...letters);
+  });
+
   function updateMotionButton() {
     const unavailable = !window.gsap || !window.ScrollTrigger;
     const key = reducedMotion.matches
@@ -47,12 +123,12 @@
     gsap.registerPlugin(ScrollTrigger);
     motionContext = gsap.matchMedia();
     motionContext.add("(prefers-reduced-motion: no-preference)", () => {
-      // The object, rather than the reading surface, carries the motion.
-      const sculpture = document.querySelector(".sculpture");
-      gsap.from(sculpture, {
-        opacity: 0.4,
-        scale: 0.95,
-        duration: 0.8,
+      // One entrance sequence; the tagline and project copy stay stable.
+      gsap.from(".name-letter", {
+        opacity: 0,
+        y: -20,
+        stagger: 0.05,
+        duration: 0.5,
         ease: "power3.out",
       });
       const assembly = gsap.timeline({
@@ -65,22 +141,9 @@
         defaults: { ease: "none" },
       });
       assembly
-        .to(
-          ".ribbon-front",
-          { x: -120, y: 115, rotation: -8, svgOrigin: "320 310" },
-          0,
-        )
-        .to(
-          ".ribbon-back",
-          { x: 140, y: -105, rotation: 8, svgOrigin: "320 310" },
-          0,
-        )
-        .to(".ribbon-middle", { rotation: -4, svgOrigin: "320 310" }, 0)
-        .to(
-          ".art-orbit",
-          { scale: 0.85, transformOrigin: "50% 50%", opacity: 0.1 },
-          0,
-        );
+        .to(".name-line:first-child", { x: -32, y: -20 }, 0)
+        .to(".name-line:last-child", { x: 32, y: 20 }, 0)
+        .to(".hero-portrait img", { scale: 1.08, y: 10 }, 0);
     });
     motionContext.add(
       "(min-width: 761px) and (prefers-reduced-motion: no-preference)",

@@ -17,6 +17,7 @@ const types = {
 const allowed = new Set([
   "/index.html",
   "/styles.css",
+  "/hero.css",
   "/scripts/main.js",
   "/scripts/i18n.js",
 ]);

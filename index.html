@@ -2,8 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#080e1b" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Celso Toledo — Software Developer. Projects, experience and a curiosity for solving real problems with code."
@@ -13,15 +16,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Antic&family=Caveat:wght@600&family=Fira+Code:wght@700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="hero.css" />
     <noscript>
       <style>
         .language-switch,
         .copy-email,
-        .motion-toggle {
+        .motion-toggle,
+        .menu-toggle,
+        .theme-toggle {
           display: none;
         }
       </style>
@@ -40,169 +46,105 @@
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
     <header class="site-header">
-      <a class="brand" href="#home" aria-label="Celso Toledo, home"
-        ><span class="brand-mark" aria-hidden="true">c<span>.</span></span
-        >Celso Toledo</a
+      <button
+        type="button"
+        class="menu-toggle icon-button"
+        aria-label="Open menu"
+        data-i18n-aria="menuOpen"
+        aria-controls="site-menu"
+        aria-expanded="false"
       >
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M5 9h22M5 16h22M5 23h22" />
+        </svg>
+      </button>
+      <a class="brand signature" href="#home" aria-label="Celso Toledo, home"
+        >C<span aria-hidden="true">.</span></a
+      >
+      <button
+        type="button"
+        class="theme-toggle"
+        role="switch"
+        aria-checked="true"
+        aria-label="Use light theme"
+        data-i18n-aria="themeLight"
+      >
+        <span class="theme-thumb" aria-hidden="true"></span>
+      </button>
+    </header>
+    <dialog
+      class="navigation-dialog"
+      id="site-menu"
+      aria-label="Navigation menu"
+      data-i18n-aria="menuTitle"
+    >
+      <div class="menu-top">
+        <button
+          type="button"
+          class="menu-close icon-button"
+          aria-label="Close menu"
+          data-i18n-aria="menuClose"
+        >
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="m8 8 16 16M24 8 8 24" />
+          </svg></button
+        ><span class="menu-signature" aria-hidden="true">C.</span>
+      </div>
       <nav aria-label="Main navigation" data-i18n-aria="navigation">
         <a href="#work" data-i18n="navWork">Projects</a>
         <a href="#about" data-i18n="navAbout">About</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
-      <div
-        class="language-switch"
-        role="group"
-        aria-label="Language"
-        data-i18n-aria="language"
-      >
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <span aria-hidden="true">/</span>
-        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      <div class="menu-language">
+        <span data-i18n="language">Language</span>
+        <div
+          class="language-switch"
+          role="group"
+          aria-label="Language"
+          data-i18n-aria="language"
+        >
+          <button type="button" data-lang="en" aria-pressed="true">EN</button
+          ><button type="button" data-lang="pt" aria-pressed="false">PT</button>
+        </div>
       </div>
-    </header>
+    </dialog>
+    <noscript
+      ><nav class="no-script-nav" aria-label="Main navigation">
+        <a href="#work">Projects</a><a href="#about">About</a
+        ><a href="#contact">Contact</a>
+      </nav></noscript
+    >
     <main id="main">
-      <section
-        class="hero section-shell"
-        id="home"
-        aria-labelledby="hero-title"
-      >
-        <div class="hero-copy">
-          <p class="intro-line">
-            <span class="status-dot" aria-hidden="true"></span
-            ><span data-i18n="role">Software Developer</span>
-          </p>
-          <h1 id="hero-title" data-i18n-html="heroTitle">
-            Software<br />with purpose.
+      <section class="hero name-hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-name-stage">
+          <h1 id="hero-title" class="hero-name" aria-label="Celso Toledo">
+            <span class="name-line" aria-hidden="true">CELSO</span
+            ><span class="name-line" aria-hidden="true">TOLEDO</span>
           </h1>
-          <p class="hero-description" data-i18n="heroDescription">
-            I’m Celso. I turn everyday problems into simpler solutions through
-            code, curiosity and a little persistence.
-          </p>
-          <a class="button button-primary" href="#work"
-            ><span data-i18n="viewWork">Explore my projects</span
-            ><svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 5v14M5 12l7 7 7-7" /></svg
-          ></a>
-          <a
-            class="hero-contact"
-            href="mailto:celsortc@outlook.com"
-            data-i18n="talk"
-            >Let’s talk</a
-          >
-        </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="art-halo"></div>
-          <svg class="sculpture" viewBox="0 0 640 620" fill="none">
-            <defs>
-              <linearGradient
-                id="ribbon-face"
-                x1="170"
-                y1="60"
-                x2="450"
-                y2="520"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#D2DDFF" />
-                <stop offset=".24" stop-color="#6A8AFF" />
-                <stop offset=".6" stop-color="#476CFF" />
-                <stop offset="1" stop-color="#193283" />
-              </linearGradient>
-              <linearGradient
-                id="ribbon-side"
-                x1="130"
-                y1="160"
-                x2="400"
-                y2="500"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#3E5CC2" />
-                <stop offset="1" stop-color="#101B50" />
-              </linearGradient>
-              <linearGradient
-                id="ribbon-inner"
-                x1="190"
-                y1="140"
-                x2="420"
-                y2="440"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#101D51" />
-                <stop offset="1" stop-color="#749AFF" />
-              </linearGradient>
-            </defs>
-            <ellipse
-              class="art-orbit"
-              cx="320"
-              cy="530"
-              rx="210"
-              ry="44"
-              stroke="#476CFF"
-              stroke-opacity=".25"
+          <div class="hero-portrait">
+            <img
+              src="assets/celso-profile.jpg"
+              alt="Celso Toledo"
+              width="460"
+              height="460"
+              fetchpriority="high"
             />
-            <g
-              class="ribbon ribbon-back"
-              opacity=".65"
-              transform="translate(85 -60)"
-            >
-              <path
-                d="M162 212 328 112 488 206 488 399 323 499 162 405Z M225 248 225 367 322 423 425 362 425 244 328 186Z"
-                fill="url(#ribbon-side)"
-                fill-rule="evenodd"
-              />
-              <path
-                d="m162 212 0 193 25 14V227Zm0 0 25 15 166-100-25-15Z"
-                fill="#7595F0"
-              />
-            </g>
-            <g class="ribbon ribbon-middle" transform="translate(5 -5)">
-              <path
-                d="M162 212 328 112 488 206 488 399 323 499 162 405Z M225 248 225 367 322 423 425 362 425 244 328 186Z"
-                fill="url(#ribbon-face)"
-                fill-rule="evenodd"
-              />
-              <path
-                d="m162 212 0 193 25 14V227Zm0 0 25 15 166-100-25-15Z"
-                fill="#AAC2FF"
-              />
-              <path
-                d="m225 248 103-62 97 58-24 14-73-43-78 47v91l-25 14Z"
-                fill="url(#ribbon-inner)"
-              />
-              <path
-                d="m488 206 25 15v193l-165 100-25-15 165-100Z"
-                fill="url(#ribbon-side)"
-              />
-            </g>
-            <g class="ribbon ribbon-front" transform="translate(-75 65)">
-              <path
-                d="M162 212 328 112 488 206 488 399 323 499 162 405Z M225 248 225 367 322 423 425 362 425 244 328 186Z"
-                fill="url(#ribbon-face)"
-                fill-rule="evenodd"
-              />
-              <path
-                d="m162 212 0 193 25 14V227Zm0 0 25 15 166-100-25-15Z"
-                fill="#AAC2FF"
-              />
-              <path
-                d="m225 248 103-62 97 58-24 14-73-43-78 47v91l-25 14Z"
-                fill="url(#ribbon-inner)"
-              />
-              <path
-                d="m488 206 25 15v193l-165 100-25-15 165-100Z"
-                fill="url(#ribbon-side)"
-              />
-            </g>
-          </svg>
-          <span class="art-caption" data-i18n="artCaption"
-            >Small parts. A bigger picture.</span
-          >
+          </div>
         </div>
-        <div class="hero-bottom">
-          <a href="#work" class="scroll-cue"
-            ><span class="scroll-line" aria-hidden="true"></span
-            ><span data-i18n="scroll">A little further down</span></a
-          ><span data-i18n="heroStack">Built with HTML, CSS & JavaScript</span>
+        <div class="hero-tagline">
+          <p data-i18n="heroTagline">
+            Turning everyday problems into useful software.
+          </p>
+          <span data-i18n="role">Software Developer</span>
         </div>
+        <a
+          href="#work"
+          class="hero-scroll icon-button"
+          aria-label="Explore my projects"
+          data-i18n-aria="viewWork"
+          ><svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="m7 12 9 9 9-9" /></svg
+        ></a>
       </section>
       <section
         class="work section-shell"

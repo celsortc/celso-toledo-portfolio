@@ -1,4 +1,6 @@
-/* One type family, a cobalt object, and plenty of room to read. */
+/* One type family,
+a cobalt object,
+and plenty of room to read. */
 :root {
   color-scheme: dark;
   --bg: #080e1b;
@@ -61,14 +63,12 @@ summary:focus-visible {
 svg {
   display: block;
 }
-h1,
 h2,
 h3,
 h4,
 p {
   margin: 0;
 }
-h1,
 h2,
 h3,
 h4 {
@@ -114,70 +114,6 @@ button {
 .skip-link:focus {
   transform: none;
 }
-.site-header {
-  position: relative;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  width: min(1280px, calc(100% - 112px));
-  height: 112px;
-  margin: auto;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  font-size: 17px;
-  letter-spacing: -0.035em;
-}
-.brand-mark {
-  font-size: 36px;
-  line-height: 1;
-}
-.brand-mark span {
-  color: var(--blue);
-}
-.site-header nav {
-  display: flex;
-  gap: 38px;
-  color: var(--muted);
-  font-size: 14px;
-}
-.language-switch {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 12px;
-}
-.language-switch > span {
-  color: #52607c;
-}
-.language-switch button {
-  border: 0;
-  background: none;
-  padding: 10px 4px;
-  color: var(--muted);
-  font-weight: 700;
-}
-.language-switch button[aria-pressed="true"] {
-  color: var(--ink);
-}
-.hero {
-  position: relative;
-  min-height: min(810px, calc(100svh - 112px));
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 130px;
-}
-.hero-copy {
-  position: relative;
-  z-index: 2;
-}
 .intro-line {
   display: flex;
   align-items: center;
@@ -193,20 +129,6 @@ button {
   height: 6px;
   border-radius: 50%;
   background: var(--pale);
-}
-h1 {
-  margin-top: 28px;
-  font-size: clamp(64px, 7.4vw, 110px);
-  line-height: 1.03;
-  font-weight: 500;
-  letter-spacing: -0.075em;
-}
-.hero-description {
-  font-size: 17px;
-  color: var(--muted);
-  max-width: 390px;
-  line-height: 1.8;
-  margin: 28px 0 32px;
 }
 .button {
   display: inline-flex;
@@ -230,68 +152,6 @@ h1 {
 .button-primary {
   background: var(--blue);
   color: #fff;
-}
-.hero-contact {
-  display: inline-block;
-  margin-left: 24px;
-  font-size: 14px;
-  color: var(--pale);
-  text-underline-offset: 6px;
-}
-.hero-art {
-  position: relative;
-  width: 116%;
-  margin-left: -8%;
-  aspect-ratio: 1.04;
-  isolation: isolate;
-}
-.art-halo {
-  position: absolute;
-  inset: 14%;
-  z-index: -1;
-  border-radius: 50%;
-  background: radial-gradient(
-    ellipse,
-    #243e89 0%,
-    #112043 45%,
-    transparent 70%
-  );
-  opacity: 0.6;
-}
-.sculpture {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-.art-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 12px;
-  color: var(--muted);
-}
-.hero-bottom {
-  position: absolute;
-  bottom: 30px;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--muted);
-  font-size: 12px;
-}
-.scroll-cue {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-.scroll-line {
-  width: 1px;
-  height: 35px;
-  background: linear-gradient(var(--pale), transparent);
 }
 .section-heading {
   display: flex;
@@ -876,23 +736,8 @@ h1 {
   }
 }
 @media (max-width: 1100px) {
-  .section-shell,
-  .site-header {
+  .section-shell {
     width: calc(100% - 72px);
-  }
-  h1 {
-    font-size: clamp(60px, 7.8vw, 86px);
-  }
-  .hero-art {
-    width: 114%;
-    margin-left: -12%;
-  }
-  .hero-description {
-    max-width: 340px;
-    font-size: 15px;
-  }
-  .hero-contact {
-    margin-left: 15px;
   }
   .button {
     gap: 20px;
@@ -912,64 +757,8 @@ h1 {
   html {
     scroll-padding-top: 24px;
   }
-  .section-shell,
-  .site-header {
+  .section-shell {
     width: calc(100% - 40px);
-  }
-  .site-header {
-    height: auto;
-    min-height: 86px;
-    flex-wrap: wrap;
-    padding-block: 20px;
-    gap: 14px;
-  }
-  .brand {
-    font-size: 15px;
-  }
-  .brand-mark {
-    font-size: 30px;
-  }
-  .site-header nav {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 38px;
-    padding-top: 10px;
-    font-size: 13px;
-  }
-  .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    padding-top: 52px;
-    padding-bottom: 94px;
-  }
-  .hero-art {
-    grid-row: 2;
-    width: min(460px, 100%);
-    margin: 10px auto 0;
-  }
-  .hero-copy {
-    max-width: 520px;
-  }
-  h1 {
-    font-size: clamp(57px, 12.6vw, 86px);
-    margin-top: 22px;
-  }
-  .hero-description {
-    max-width: 43ch;
-    font-size: 15px;
-  }
-  .hero-art .art-caption {
-    bottom: 0;
-  }
-  .hero-bottom {
-    font-size: 10px;
-    bottom: 20px;
-    gap: 24px;
-  }
-  .hero-bottom > span {
-    max-width: 150px;
-    text-align: right;
   }
   .section-heading {
     display: block;
@@ -1008,11 +797,6 @@ h1 {
   .ledger-row {
     padding-block: 12px;
     gap: 8px;
-  }
-  .hero-contact {
-    display: block;
-    width: fit-content;
-    margin: 18px 0 0;
   }
   .project h3 {
     font-size: 36px;
@@ -1097,9 +881,6 @@ h1 {
     width: 100%;
   }
   .motion-toggle {
-    font-size: 10px;
-  }
-  .art-caption {
     font-size: 10px;
   }
   .axis-chart {
