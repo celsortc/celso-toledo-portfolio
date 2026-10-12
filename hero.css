@@ -160,10 +160,22 @@ body.menu-open {
   color: var(--muted);
 }
 .hero-tagline p {
+  width: fit-content;
+  max-width: 100%;
   margin-inline: auto;
   font-family: "Antic", sans-serif;
   font-size: clamp(16px, 2vw, 22px);
   line-height: 1.5;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 .hero-tagline > span {
   display: block;
@@ -282,6 +294,22 @@ body.menu-open {
   background: var(--surface);
 }
 @media (hover: hover) and (pointer: fine) {
+  .tagline-word {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .tagline-letter {
+    transition: color 180ms ease;
+    transition-delay: 0s;
+  }
+  .hero-tagline p:hover .tagline-letter {
+    color: var(--ink);
+    transition-delay: var(--letter-delay);
+  }
+  :root[data-motion="reduced"] .hero-tagline p:hover .tagline-letter {
+    transition-duration: 0s;
+    transition-delay: 0s;
+  }
   .icon-button:hover {
     color: var(--ink);
   }

@@ -89,7 +89,40 @@
     line.replaceChildren(...letters);
   });
 
+  function prepareTagline() {
+    const tagline = document.querySelector(".hero-tagline p");
+    const text = translate("heroTagline");
+    let index = 0;
+    const fragments = text.split(/(\s+)/).map((part) => {
+      if (/^\s+$/.test(part)) return document.createTextNode(part);
+      const word = document.createElement("span");
+      word.className = "tagline-word";
+      for (const letter of part) {
+        const span = document.createElement("span");
+        span.className = "tagline-letter";
+        span.textContent = letter;
+        span.style.setProperty(
+          "--letter-delay",
+          `${Math.min(index * 12, 480)}ms`,
+        );
+        word.append(span);
+        index += 1;
+      }
+      return word;
+    });
+    const accessibleText = document.createElement("span");
+    accessibleText.className = "visually-hidden";
+    accessibleText.textContent = text;
+    const visualText = document.createElement("span");
+    visualText.setAttribute("aria-hidden", "true");
+    visualText.append(...fragments);
+    tagline.replaceChildren(accessibleText, visualText);
+  }
+  prepareTagline();
+
   function updateMotionButton() {
+    document.documentElement.dataset.motion =
+      paused || reducedMotion.matches ? "reduced" : "enabled";
     const unavailable = !window.gsap || !window.ScrollTrigger;
     const key = reducedMotion.matches
       ? "motionReduced"
@@ -190,6 +223,7 @@
   });
   reducedMotion.addEventListener("change", configureMotion);
   document.addEventListener("portfolio:languagechange", () => {
+    prepareTagline();
     updateMotionButton();
     refreshMotion();
   });
