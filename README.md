@@ -1,59 +1,55 @@
 # Celso Toledo · Portfolio
 
-Personal portfolio built with HTML, CSS and vanilla JavaScript.
+Personal software developer portfolio. The hero uses the React/TypeScript component supplied by Celso, with Tailwind CSS and Lucide icons. The project and experience sections retain their HTML, CSS and JavaScript implementation.
 
 ## Run locally
 
+Requires Node.js 22.12+ or 24.
+
 ```sh
+npm ci
 npm run dev
 ```
 
-Open http://localhost:4173. The optional preview helper uses Node.js built-in modules and requires no installation of dependencies. To use a different port, set the `PORT` environment variable.
+Open **http://127.0.0.1:5173/**. Vite compiles the TSX and Tailwind and updates the page as files change. Opening the source `index.html` directly or using the old server on port 4173 no longer compiles the React application.
 
-Alternatively, open `index.html` or use any static server. The website has no build step, framework or server requirements.
+## Check and build
 
-## Content
+```sh
+npm run check
+npm run build
+npm run preview
+```
 
-The portfolio presents confirmed projects and professional experience. Project illustrations are conceptual, not screenshots of the applications.
+`check` validates TypeScript and JavaScript syntax. `build` produces `dist/`. `preview` serves the production build at http://127.0.0.1:4174/.
 
-English is the default language, with a complete Portuguese translation.
+## Structure
 
-## Features
+- `src/components/ui/portfolio-hero.tsx`: supplied hero, including its original BlurText transitions.
+- `src/components/demo.tsx`: Celso's name, photo, tagline and navigation passed to the component.
+- `src/main.tsx`: React mount and language bridge.
+- `src/styles/tailwind.css`: Tailwind setup and CSS layers.
+- `src/styles/portfolio-theme.css`: existing section themes and mobile integration.
+- `src/lib/utils.ts`, `components.json`: shadcn-compatible UI structure and utility aliases.
+- `index.html`, `styles.css`: portfolio sections and their layouts.
+- `scripts/i18n.js`: complete English and Portuguese copy.
+- `scripts/main.js`: project illustration motion, animation controls and email copying.
+- `docs/reference/portfolio-hero.original.tsx`: unchanged original supplied component.
 
-- Responsive layouts for desktop and mobile.
-- Typographic hero with Celso's GitHub portrait and dark/light themes.
-- Native dialog navigation: a compact desktop menu and a fullscreen mobile menu, with language controls and touch targets of at least 48 pixels.
-- GSAP 3.15.0 and ScrollTrigger for scroll-linked artwork; the page stays readable if those libraries fail to load.
-- English/Portuguese switching with an optional saved preference.
-- Native expandable project details, keyboard focus indicators and a skip link.
-- Automatic support for reduced motion and a manual animation pause control.
-- Email, LinkedIn, GitHub and WhatsApp contact links, plus email copying with a selection fallback.
+[Reference comparison and integration notes](docs/reference/integration.md) document the preserved behavior and the small changes needed for personal content, mobile navigation and accessibility.
 
-## Edit
+## Add shadcn components
 
-- `index.html`: semantic structure, project links and initial English content.
-- `styles.css`: design tokens, layouts and mobile adjustments.
-- `hero.css`: portrait hero, themes, header and navigation dialog.
-- `scripts/i18n.js`: all translated copy and accessibility labels.
-- `scripts/main.js`: motion and contact interactions.
-- `assets/favicon.svg`: original monogram.
-
-When changing text, update the initial HTML and both translations. Update the email and contact URLs in the HTML and the copy action in `main.js` together.
-
-## External resources
-
-Manrope, Fira Code, Antic and Caveat are served by Google Fonts. GSAP and ScrollTrigger are loaded from jsDelivr at a pinned version. The layout and all project content remain available without these external resources. Without JavaScript, the portfolio displays the default English content with direct navigation links, and its native project disclosures still work.
+The existing `components.json` and `@/*` aliases already configure the project. Components added with `npx shadcn@latest add <component>` go to `src/components/ui`.
 
 ## Publish
 
-Upload `index.html`, `styles.css`, `hero.css`, `assets/` and the two browser scripts to any static host. Keep their relative paths. Node.js, `package.json` and `serve.cjs` are only for local development.
+Run `npm run build`, then deploy the **contents of `dist/`** to a static host. Do not publish the unbuilt source `index.html`. Assets use relative paths for hosting under a repository subdirectory; the build includes `.nojekyll` for GitHub Pages.
 
-For GitHub Pages, select the `main` branch and the root folder in the repository's Pages settings. The `.nojekyll` file ensures files are served without a Jekyll build.
+## Content and resources
 
-## Verification
+English is the default, with a Portuguese alternative. Axis and Doae descriptions were checked against their source repositories; planned features are identified as planned. Project illustrations are concepts, not application screenshots.
 
-Run `npm run check` for JavaScript syntax checks. Browser review covers English and Portuguese layouts at 320, 390 and 768 pixels, plus the desktop viewport; project disclosures, language persistence, animation pause/resume and email copying were checked. Mobile checks use browser viewport emulation, not physical-device testing.
+Fonts are loaded from Google Fonts. The portrait is Celso's public GitHub photo and is bundled locally. React, Lucide, GSAP and CSS are bundled during the build. The hero requires JavaScript; the static project, experience and contact content remains in the HTML.
 
-Project descriptions were checked against the Axis and Doae source repositories. Planned features are distinguished from implemented behavior.
-
-The updated hero and menu were reviewed at 320 and 390 pixels and at the desktop viewport. Menu links, fullscreen dimensions, 48-pixel touch controls, language changes, theme switching and Escape/focus restoration were checked. Safe-area padding and touch feedback still need confirmation on a physical phone.
+Browser review covers desktop and narrow viewports, language/theme changes, fullscreen mobile navigation and the actual inline BlurText transitions. Mobile review uses viewport emulation, not a physical phone.
