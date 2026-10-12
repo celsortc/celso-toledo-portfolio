@@ -1,0 +1,11 @@
+.agents/
+.codex/
+.tools/
+.qa/
+node_modules/
+PERFIL-CELSO-TOLEDO.md
+design-notes.md
+skills-lock.json
+*.log
+.DS_Store
+Thumbs.db
