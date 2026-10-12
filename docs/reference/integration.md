@@ -13,15 +13,17 @@ The project supports React, TypeScript, Tailwind CSS and the shadcn CLI layout. 
 - Original parent tagline hover classes and 300ms color transition; no separate handcrafted hover timeline.
 - Original Fira Code and Antic font roles, name sizes of 100/140/180/210px, line-height 0.75 and letter tracking.
 - Original oval portrait dimensions of 65×110, 90×152, 110×185 and 129×218px, plus its hover scale.
-- Original desktop menu, theme toggle and Lucide Menu, X and ChevronDown icons.
+- Original theme toggle and Lucide Menu, X and ChevronDown icons.
 
 ## Explicit integration changes
 
 The component takes content props for Celso's name, portrait, tagline and working project/about/contact destinations. It adds English/Portuguese controls and retains the previously requested fullscreen mobile menu with large touch targets. Six-letter TOLEDO receives a size constraint below 390px so it does not wrap or overflow where the reference's four-letter KANE fits. Long translated taglines are centered when they wrap.
 
+At 1280px and above, navigation links remain visible in the center of the header, with language and theme controls on the right. Below 1280px, phones and tablets use the fullscreen hamburger menu. Resizing to desktop closes the overlay and restores scrolling. This replaces the reference's desktop dropdown at Celso's explicit request.
+
 Nonvisual additions provide a heading label, continuous accessible text, Escape dismissal, mobile focus containment and reduced-motion support. The scroll indicator now scrolls to Projects. The outer section replaces the reference's nested main element without changing its layout.
 
-Legacy CSS is imported into Tailwind's components layer, so it cannot silently override the supplied utility classes. The prior vanilla hero, custom hover timelines and geometric hero scroll effects were removed. GSAP remains only for the project illustrations.
+Legacy CSS is imported into Tailwind's components layer, so it cannot silently override the supplied utility classes. The prior vanilla hero, custom hover timelines and geometric hero scroll effects were removed. GSAP connects native scrolling to the project showcase.
 
 ## Checked
 

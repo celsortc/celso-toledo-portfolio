@@ -166,10 +166,12 @@ export default function Component({
   }, [isMenuOpen]);
 
   useEffect(() => {
-    const desktop = window.matchMedia('(min-width: 1280px)');
-    const closeOnDesktop = () => { if (desktop.matches) setIsMenuOpen(false); };
-    desktop.addEventListener('change', closeOnDesktop);
-    return () => desktop.removeEventListener('change', closeOnDesktop);
+    const desktop = window.matchMedia("(min-width: 1280px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) setIsMenuOpen(false);
+    };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
   }, []);
 
   useEffect(() => {
@@ -219,7 +221,12 @@ export default function Component({
     >
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6">
-        <nav aria-label={language === 'pt' ? 'Navegação principal' : 'Main navigation'} className="flex items-center justify-between max-w-screen-2xl mx-auto">
+        <nav
+          aria-label={
+            language === "pt" ? "Navegação principal" : "Main navigation"
+          }
+          className="reference-header-nav flex items-center justify-between max-w-screen-2xl mx-auto"
+        >
           {/* Menu Button */}
           <div className="relative xl:hidden">
             <button
@@ -340,32 +347,54 @@ export default function Component({
           </div>
 
           <div className="reference-desktop-links hidden xl:flex">
-            {menuItems.map(item => <a key={item.label} href={item.href}>{item.label}</a>)}
+            {menuItems.map((item) => (
+              <a key={item.label} href={item.href}>
+                {item.label}
+              </a>
+            ))}
           </div>
 
           <div className="reference-header-actions">
-            {onLanguageChange && <div className="reference-desktop-language hidden xl:flex" role="group" aria-label={language === 'pt' ? 'Idioma' : 'Language'}>
-              <button type="button" aria-pressed={language === 'en'} onClick={() => onLanguageChange('en')}>EN</button>
-              <button type="button" aria-pressed={language === 'pt'} onClick={() => onLanguageChange('pt')}>PT</button>
-            </div>}
-          {/* Theme Toggle */}
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="relative w-16 h-8 rounded-full hover:opacity-80 transition-opacity"
-            style={{
-              backgroundColor: isDark ? "hsl(0 0% 15%)" : "hsl(0 0% 90%)",
-            }}
-            aria-label="Toggle theme"
-          >
-            <div
-              className="absolute top-1 left-1 w-6 h-6 rounded-full transition-transform duration-300"
+            {onLanguageChange && (
+              <div
+                className="reference-desktop-language hidden xl:flex"
+                role="group"
+                aria-label={language === "pt" ? "Idioma" : "Language"}
+              >
+                <button
+                  type="button"
+                  aria-pressed={language === "en"}
+                  onClick={() => onLanguageChange("en")}
+                >
+                  EN
+                </button>
+                <button
+                  type="button"
+                  aria-pressed={language === "pt"}
+                  onClick={() => onLanguageChange("pt")}
+                >
+                  PT
+                </button>
+              </div>
+            )}
+            {/* Theme Toggle */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="relative w-16 h-8 rounded-full hover:opacity-80 transition-opacity"
               style={{
-                backgroundColor: isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)",
-                transform: isDark ? "translateX(2rem)" : "translateX(0)",
+                backgroundColor: isDark ? "hsl(0 0% 15%)" : "hsl(0 0% 90%)",
               }}
-            />
-          </button>
+              aria-label="Toggle theme"
+            >
+              <div
+                className="absolute top-1 left-1 w-6 h-6 rounded-full transition-transform duration-300"
+                style={{
+                  backgroundColor: isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)",
+                  transform: isDark ? "translateX(2rem)" : "translateX(0)",
+                }}
+              />
+            </button>
           </div>
         </nav>
       </header>
@@ -444,14 +473,12 @@ export default function Component({
           className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 transition-colors duration-300"
           aria-label="Scroll down"
           onClick={() =>
-            document
-              .querySelector("#work")
-              ?.scrollIntoView({
-                behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
-                  .matches
-                  ? "instant"
-                  : "smooth",
-              })
+            document.querySelector("#work")?.scrollIntoView({
+              behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+                .matches
+                ? "instant"
+                : "smooth",
+            })
           }
         >
           <ChevronDown className="w-5 h-5 md:w-8 md:h-8 text-neutral-500 hover:text-black dark:hover:text-white transition-colors duration-300" />

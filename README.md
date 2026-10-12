@@ -1,6 +1,6 @@
 # Celso Toledo · Portfolio
 
-Personal software developer portfolio. The hero uses the React/TypeScript component supplied by Celso, with Tailwind CSS and Lucide icons. The project and experience sections retain their HTML, CSS and JavaScript implementation.
+Personal software developer portfolio. The hero and project showcase use React/TypeScript components based on Celso's supplied references, with Tailwind CSS, Lucide icons and GSAP. Experience and contact use HTML, CSS and JavaScript.
 
 ## Run locally
 
@@ -27,16 +27,21 @@ npm run preview
 
 - `src/components/ui/portfolio-hero.tsx`: supplied hero, including its original BlurText transitions.
 - `src/components/demo.tsx`: Celso's name, photo, tagline and navigation passed to the component.
+- `src/components/ui/works-wheel.tsx`: two-project perspective showcase with native scroll and keyboard controls.
+- `src/components/projects.tsx`: Axis and Doae content and language integration.
 - `src/main.tsx`: React mount and language bridge.
 - `src/styles/tailwind.css`: Tailwind setup and CSS layers.
 - `src/styles/portfolio-theme.css`: existing section themes and mobile integration.
+- `src/styles/works-wheel.css`: desktop perspective stage and static mobile project cards.
 - `src/lib/utils.ts`, `components.json`: shadcn-compatible UI structure and utility aliases.
 - `index.html`, `styles.css`: portfolio sections and their layouts.
 - `scripts/i18n.js`: complete English and Portuguese copy.
-- `scripts/main.js`: project illustration motion, animation controls and email copying.
+- `scripts/main.js`: animation controls and email copying.
 - `docs/reference/portfolio-hero.original.tsx`: unchanged original supplied component.
+- `docs/reference/works-wheel.original.tsx`: unchanged supplied project reference.
 
 [Reference comparison and integration notes](docs/reference/integration.md) document the preserved behavior and the small changes needed for personal content, mobile navigation and accessibility.
+[Project integration notes](docs/reference/projects-integration.md) explain the adaptation for two projects.
 
 ## Add shadcn components
 
@@ -48,8 +53,8 @@ Run `npm run build`, then deploy the **contents of `dist/`** to a static host. D
 
 ## Content and resources
 
-English is the default, with a Portuguese alternative. Axis and Doae descriptions were checked against their source repositories; planned features are identified as planned. Project illustrations are concepts, not application screenshots.
+English is the default, with a Portuguese alternative. Axis and Doae descriptions were checked against their source repositories; planned features are identified as planned. Axis uses a screenshot of its actual prototype with sample values. Doae uses a conceptual cover with its repository's logo, explicitly identified as a concept.
 
-Fonts are loaded from Google Fonts. The portrait is Celso's public GitHub photo and is bundled locally. React, Lucide, GSAP and CSS are bundled during the build. The hero requires JavaScript; the static project, experience and contact content remains in the HTML.
+Fonts are loaded from Google Fonts. The portrait is Celso's public GitHub photo and is bundled locally. React, Lucide, GSAP and CSS are bundled during the build. The hero and projects require JavaScript; experience and contact content remain in the HTML.
 
 Browser review covers desktop and narrow viewports, language/theme changes, fullscreen mobile navigation and the actual inline BlurText transitions. Mobile review uses viewport emulation, not a physical phone.
