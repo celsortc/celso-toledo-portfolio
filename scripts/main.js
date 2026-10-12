@@ -92,11 +92,20 @@
   function prepareTagline() {
     const tagline = document.querySelector(".hero-tagline p");
     const text = translate("heroTagline");
-    const fragments = text.split(/(\s+)/).map((part) => {
+    const parts = text.split(/(\s+)/);
+    const wordCount = parts.filter((part) => part.trim()).length;
+    let index = 0;
+    const fragments = parts.map((part) => {
       if (/^\s+$/.test(part)) return document.createTextNode(part);
       const word = document.createElement("span");
       word.className = "tagline-word";
       word.textContent = part;
+      word.style.setProperty("--enter-delay", `${index * 70}ms`);
+      word.style.setProperty(
+        "--exit-delay",
+        `${(wordCount - 1 - index) * 70}ms`,
+      );
+      index += 1;
       return word;
     });
     const accessibleText = document.createElement("span");
