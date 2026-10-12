@@ -324,6 +324,7 @@ h1 {
 }
 .project-art {
   position: relative;
+  width: 100%;
   min-width: 0;
   aspect-ratio: 1.12;
   overflow: hidden;
@@ -331,7 +332,11 @@ h1 {
   background: #152441;
   padding: 34px;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   place-items: center;
+}
+.project-copy {
+  min-width: 0;
 }
 .project-art-caption {
   position: absolute;
@@ -425,6 +430,7 @@ h1 {
 }
 .axis-preview {
   width: 100%;
+  min-width: 0;
   max-width: 440px;
   background: #f2f5fc;
   color: #182544;
@@ -993,6 +999,7 @@ h1 {
   }
   .axis-art {
     min-height: 360px;
+    aspect-ratio: auto;
     padding: 24px 24px 38px;
   }
   .axis-preview {
