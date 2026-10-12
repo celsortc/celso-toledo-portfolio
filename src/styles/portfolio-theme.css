@@ -1,0 +1,131 @@
+/* Integration only. BlurText and desktop geometry come from the supplied TSX. */
+:root {
+  --bg: #000;
+  --ink: #fff;
+  --muted: #929292;
+  --pale: #d4d4d4;
+  --surface: #151515;
+  --line: #282828;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #fafafa;
+  --ink: #171717;
+  --muted: #606060;
+  --pale: #444;
+  --surface: #eee;
+  --line: #ddd;
+}
+.reference-hero {
+  line-height: 1.5;
+}
+.reference-hero p {
+  max-width: none;
+}
+.reference-tagline {
+  max-width: 100%;
+  justify-content: center;
+}
+.reference-language {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+}
+.reference-language > span {
+  margin-right: auto;
+  color: var(--muted);
+}
+.reference-language button {
+  min-width: 48px;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: none;
+  color: var(--ink);
+}
+.reference-language button[aria-pressed="true"] {
+  border-color: #c3e41d;
+  color: #c3e41d;
+}
+.reference-mobile-menu-top {
+  display: none;
+}
+.reference-menu button,
+.reference-menu a {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* Six-letter TOLEDO must fit where the reference's four-letter KANE fits. */
+@media (max-width: 390px) {
+  .reference-name {
+    font-size: min(100px, calc((100vw - 32px) / 3.4));
+    flex-wrap: nowrap;
+  }
+}
+@media (max-width: 767px) {
+  .reference-menu {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+    padding: calc(24px + env(safe-area-inset-top, 0px)) 24px
+      calc(32px + env(safe-area-inset-bottom, 0px));
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .reference-mobile-menu-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+  .reference-mobile-menu-top button {
+    display: grid;
+    place-items: center;
+    min-width: 48px;
+    min-height: 48px;
+    background: none;
+    border: 0;
+  }
+  .reference-mobile-menu-top svg {
+    width: 32px;
+    height: 32px;
+  }
+  .reference-mobile-menu-top span {
+    font-size: 36px;
+  }
+  .reference-menu > a {
+    font-size: clamp(34px, 10vw, 48px);
+    min-height: 72px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+  }
+  .reference-language {
+    margin-top: auto;
+    padding-top: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reference-hero [data-blur-segment] {
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+:root[data-motion="reduced"] .reference-hero [data-blur-segment] {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}

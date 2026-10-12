@@ -19,8 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Antic&family=Caveat:wght@600&family=Fira+Code:wght@700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="hero.css" />
+
     <noscript>
       <style>
         .language-switch,
@@ -32,120 +31,12 @@
         }
       </style>
     </noscript>
-    <script
-      src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"
-      defer
-    ></script>
-    <script src="scripts/i18n.js" defer></script>
-    <script src="scripts/main.js" defer></script>
+    <script type="module" src="/src/main.tsx"></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
-    <header class="site-header">
-      <button
-        type="button"
-        class="menu-toggle icon-button"
-        aria-label="Open menu"
-        data-i18n-aria="menuOpen"
-        aria-controls="site-menu"
-        aria-expanded="false"
-      >
-        <svg viewBox="0 0 32 32" aria-hidden="true">
-          <path d="M5 9h22M5 16h22M5 23h22" />
-        </svg>
-      </button>
-      <a class="brand signature" href="#home" aria-label="Celso Toledo, home"
-        >C<span aria-hidden="true">.</span></a
-      >
-      <button
-        type="button"
-        class="theme-toggle"
-        role="switch"
-        aria-checked="true"
-        aria-label="Use light theme"
-        data-i18n-aria="themeLight"
-      >
-        <span class="theme-thumb" aria-hidden="true"></span>
-      </button>
-    </header>
-    <dialog
-      class="navigation-dialog"
-      id="site-menu"
-      aria-label="Navigation menu"
-      data-i18n-aria="menuTitle"
-    >
-      <div class="menu-top">
-        <button
-          type="button"
-          class="menu-close icon-button"
-          aria-label="Close menu"
-          data-i18n-aria="menuClose"
-        >
-          <svg viewBox="0 0 32 32" aria-hidden="true">
-            <path d="m8 8 16 16M24 8 8 24" />
-          </svg></button
-        ><span class="menu-signature" aria-hidden="true">C.</span>
-      </div>
-      <nav aria-label="Main navigation" data-i18n-aria="navigation">
-        <a href="#work" data-i18n="navWork">Projects</a>
-        <a href="#about" data-i18n="navAbout">About</a>
-        <a href="#contact" data-i18n="navContact">Contact</a>
-      </nav>
-      <div class="menu-language">
-        <span data-i18n="language">Language</span>
-        <div
-          class="language-switch"
-          role="group"
-          aria-label="Language"
-          data-i18n-aria="language"
-        >
-          <button type="button" data-lang="en" aria-pressed="true">EN</button
-          ><button type="button" data-lang="pt" aria-pressed="false">PT</button>
-        </div>
-      </div>
-    </dialog>
-    <noscript
-      ><nav class="no-script-nav" aria-label="Main navigation">
-        <a href="#work">Projects</a><a href="#about">About</a
-        ><a href="#contact">Contact</a>
-      </nav></noscript
-    >
+    <div id="hero-root"></div>
     <main id="main">
-      <section class="hero name-hero" id="home" aria-labelledby="hero-title">
-        <div class="hero-name-stage">
-          <h1 id="hero-title" class="hero-name" aria-label="Celso Toledo">
-            <span class="name-line" aria-hidden="true">CELSO</span
-            ><span class="name-line" aria-hidden="true">TOLEDO</span>
-          </h1>
-          <div class="hero-portrait">
-            <img
-              src="assets/celso-profile.jpg"
-              alt="Celso Toledo"
-              width="460"
-              height="460"
-              fetchpriority="high"
-            />
-          </div>
-        </div>
-        <div class="hero-tagline">
-          <p data-i18n="heroTagline">
-            Turning everyday problems into useful software.
-          </p>
-          <span data-i18n="role">Software Developer</span>
-        </div>
-        <a
-          href="#work"
-          class="hero-scroll icon-button"
-          aria-label="Explore my projects"
-          data-i18n-aria="viewWork"
-          ><svg viewBox="0 0 32 32" aria-hidden="true">
-            <path d="m7 12 9 9 9-9" /></svg
-        ></a>
-      </section>
       <section
         class="work section-shell"
         id="work"
@@ -397,6 +288,7 @@
       </section>
       <section
         class="experience section-shell"
+        id="experience"
         aria-labelledby="experience-title"
       >
         <div class="section-heading">
@@ -433,7 +325,7 @@
               </p>
             </div>
           </article>
-          <div class="education">
+          <div class="education" id="education">
             <h3 data-i18n="education">Always learning</h3>
             <h4 data-i18n="degree">Systems Analysis & Development</h4>
             <p>Facens</p>

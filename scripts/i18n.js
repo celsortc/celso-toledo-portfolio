@@ -235,7 +235,7 @@
       translate("pageDescription");
     document
       .querySelector(".brand")
-      .setAttribute("aria-label", translate("homeLabel"));
+      ?.setAttribute("aria-label", translate("homeLabel"));
     document.querySelector(".copy-status").textContent = "";
     try {
       localStorage.setItem("portfolio-language", next);
