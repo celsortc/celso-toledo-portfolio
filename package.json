@@ -1,0 +1,10 @@
+{
+  "name": "celso-toledo-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Celso Toledo's portfolio in HTML, CSS and vanilla JavaScript",
+  "scripts": {
+    "dev": "node scripts/serve.cjs",
+    "check": "node --check scripts/main.js && node --check scripts/i18n.js && node --check scripts/serve.cjs"
+  }
+}
