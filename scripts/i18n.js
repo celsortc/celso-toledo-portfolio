@@ -194,7 +194,7 @@
   let language = "en";
   try {
     const saved = localStorage.getItem("portfolio-language");
-    if (saved in messages) language = saved;
+    if (Object.hasOwn(messages, saved)) language = saved;
   } catch {
     /* Storage is optional. */
   }
@@ -203,7 +203,7 @@
     return messages[language][key] ?? messages.en[key] ?? key;
   }
   function setLanguage(next) {
-    if (!(next in messages)) return;
+    if (!Object.hasOwn(messages, next)) return;
     language = next;
     document.documentElement.lang = next === "pt" ? "pt-BR" : "en";
     document.querySelectorAll("[data-i18n]").forEach((element) => {
