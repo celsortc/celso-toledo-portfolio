@@ -113,8 +113,22 @@ export default function Component({
 }: PortfolioHeroProps) {
   const [isDark, setIsDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    let previous = window.scrollY > 24;
+    setIsScrolled(previous);
+    const update = () => {
+      const next = window.scrollY > 24;
+      if (next === previous) return;
+      previous = next;
+      setIsScrolled(next);
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -220,7 +234,10 @@ export default function Component({
       }}
     >
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6">
+      <header
+        className="reference-header fixed top-0 left-0 right-0 z-50 px-6 py-6"
+        data-scrolled={isScrolled}
+      >
         <nav
           aria-label={
             language === "pt" ? "Navegação principal" : "Main navigation"

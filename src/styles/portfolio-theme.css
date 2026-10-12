@@ -22,6 +22,33 @@
 .reference-hero p {
   max-width: none;
 }
+.reference-header {
+  isolation: isolate;
+}
+.reference-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+@supports ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
+  .reference-header::before {
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+.reference-header[data-scrolled="true"]::before {
+  opacity: 1;
+}
+.reference-header:where([data-scrolled="true"]) .reference-desktop-links a {
+  color: var(--ink);
+}
 .reference-tagline {
   max-width: 100%;
   justify-content: center;
@@ -164,12 +191,18 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .reference-header::before {
+    transition: none;
+  }
   .reference-hero [data-blur-segment] {
     filter: none !important;
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
+}
+:root[data-motion="reduced"] .reference-header::before {
+  transition: none;
 }
 :root[data-motion="reduced"] .reference-hero [data-blur-segment] {
   filter: none !important;
