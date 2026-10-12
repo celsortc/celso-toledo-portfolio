@@ -2,6 +2,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 (() => {
+  const controller = new AbortController();
+  const listen = (target, event, handler) =>
+    target.addEventListener(event, handler, { signal: controller.signal });
   const { translate } = window.portfolioI18n;
   const motionButton = document.querySelector(".motion-toggle");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -66,10 +69,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
     );
   }
   function refreshMotion() {
+    if (controller.signal.aborted) return;
     cancelAnimationFrame(refreshFrame);
     refreshFrame = requestAnimationFrame(() => ScrollTrigger.refresh());
   }
-  motionButton.addEventListener("click", () => {
+  listen(motionButton, "click", () => {
     paused = !paused;
     try {
       localStorage.setItem("portfolio-motion", paused ? "paused" : "enabled");
@@ -78,17 +82,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
     }
     configureMotion();
   });
-  reducedMotion.addEventListener("change", configureMotion);
-  document.addEventListener("portfolio:languagechange", () => {
+  listen(reducedMotion, "change", configureMotion);
+  listen(document, "portfolio:languagechange", () => {
     updateMotionButton();
     refreshMotion();
   });
   document
     .querySelectorAll("details")
-    .forEach((detail) => detail.addEventListener("toggle", refreshMotion));
+    .forEach((detail) => listen(detail, "toggle", refreshMotion));
   document.fonts?.ready.then(refreshMotion);
   configureMotion();
-  document.querySelector(".copy-email").addEventListener("click", async () => {
+  listen(document.querySelector(".copy-email"), "click", async () => {
     const status = document.querySelector(".copy-status");
     try {
       await navigator.clipboard.writeText("celsortc@outlook.com");
@@ -101,5 +105,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
       selection.addRange(range);
       status.textContent = translate("copyFailed");
     }
+  });
+  import.meta.hot?.dispose(() => {
+    controller.abort();
+    motionContext?.revert();
+    cancelAnimationFrame(refreshFrame);
   });
 })();

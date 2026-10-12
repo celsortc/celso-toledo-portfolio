@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, type Root } from "react-dom/client";
 import "./styles/tailwind.css";
 import "./styles/portfolio-theme.css";
 import "../scripts/i18n.js";
@@ -24,4 +24,8 @@ function HeroApp() {
     />
   );
 }
-createRoot(document.getElementById("hero-root")!).render(<HeroApp />);
+const root: Root =
+  import.meta.hot?.data.root ??
+  createRoot(document.getElementById("hero-root")!);
+if (import.meta.hot) import.meta.hot.data.root = root;
+root.render(<HeroApp />);
