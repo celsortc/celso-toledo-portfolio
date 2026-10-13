@@ -242,6 +242,11 @@ button {
   border-radius: 5px;
   color: var(--pale);
 }
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
 .project-link {
   display: inline-flex;
   gap: 14px;

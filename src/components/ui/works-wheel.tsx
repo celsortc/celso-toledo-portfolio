@@ -8,6 +8,8 @@ export interface WorksWheelItem {
   title: string;
   image: string;
   href: string;
+  liveHref?: string;
+  liveLabel?: string;
   description: string;
   kind: string;
   status: string;
@@ -26,7 +28,7 @@ export interface WorksWheelProps {
   className?: string;
 }
 
-// Geometry from the supplied wheel. Two works start as a drum, without a sparse ring.
+// Geometry from the supplied wheel. Works start as a drum, without a sparse ring.
 const CARD_RATIO = 1.45;
 const STEP = 40;
 const DRUM = 2.22;
@@ -60,15 +62,28 @@ function ProjectCopy({
           <li key={technology}>{technology}</li>
         ))}
       </ul>
-      <a
-        className="project-link"
-        href={item.href}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {action}
-        <ArrowUpRight size={18} aria-hidden="true" />
-      </a>
+      <div className="project-links">
+        <a
+          className="project-link"
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {action}
+          <ArrowUpRight size={18} aria-hidden="true" />
+        </a>
+        {item.liveHref && item.liveLabel && (
+          <a
+            className="project-link"
+            href={item.liveHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {item.liveLabel}
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
+        )}
+      </div>
       <details>
         <summary>{detailsLabel}</summary>
         {item.notes.map((note) => (

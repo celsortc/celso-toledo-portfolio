@@ -1,6 +1,7 @@
 import WorksWheel, { type WorksWheelItem } from "@/components/ui/works-wheel";
 import axisImage from "../../assets/projects/axis-cover.jpg";
 import doaeImage from "../../assets/projects/doae-cover.svg";
+import previousPortfolioImage from "../../assets/projects/previous-portfolio-cover.jpg";
 
 export default function Projects({ language }: { language: "en" | "pt" }) {
   const { translate: t } = window.portfolioI18n;
@@ -32,6 +33,19 @@ export default function Projects({ language }: { language: "en" | "pt" }) {
         language === "pt"
           ? "Ilustração conceitual · estoque de doações"
           : "Concept illustration · donation inventory",
+    },
+    {
+      title: t("previousPortfolioTitle"),
+      image: previousPortfolioImage,
+      href: "https://github.com/celsortc/celsotoledo-portfolio",
+      liveHref: "https://celsortc.github.io/celsotoledo-portfolio/",
+      liveLabel: t("visitSite"),
+      description: t("previousPortfolioDescription"),
+      kind: t("personal"),
+      status: t("previousVersion"),
+      technologies: ["HTML", "CSS", "JavaScript"],
+      notes: [t("previousPortfolioProblem"), t("previousPortfolioLearning")],
+      imageLabel: t("previousPortfolioCaption"),
     },
   ];
   return (

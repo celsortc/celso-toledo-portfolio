@@ -31,6 +31,16 @@
       inDevelopment: "In development",
       technologies: "Technologies",
       viewCode: "View source code",
+      visitSite: "Visit website",
+      previousVersion: "Previous version",
+      previousPortfolioTitle: "Previous portfolio",
+      previousPortfolioDescription:
+        "My previous personal website, bringing projects, skills and contact information together in a responsive interface with two languages and light and dark themes.",
+      previousPortfolioProblem:
+        "I built this portfolio to bring my work and professional information together in one place, making it easier to explore my projects and get in touch.",
+      previousPortfolioLearning:
+        "Hands-on practice with HTML, CSS and JavaScript: responsive layouts, DOM events, dynamic translations and theme and language preferences saved in localStorage.",
+      previousPortfolioCaption: "Actual interface · previous portfolio",
       projectDetails: "The problem & what I’m learning",
       axisDescription:
         "A clearer view of everyday finances. A web app for recording income and expenses, organizing transactions by category and filtering your history.",
@@ -131,6 +141,16 @@
       inDevelopment: "Em desenvolvimento",
       technologies: "Tecnologias",
       viewCode: "Ver código-fonte",
+      visitSite: "Visitar site",
+      previousVersion: "Versão anterior",
+      previousPortfolioTitle: "Portfólio anterior",
+      previousPortfolioDescription:
+        "Meu site pessoal anterior, reunindo projetos, habilidades e contato em uma interface responsiva com dois idiomas e temas claro e escuro.",
+      previousPortfolioProblem:
+        "Criei este portfólio para reunir meus trabalhos e informações profissionais em um só lugar, facilitando a descoberta dos projetos e o contato.",
+      previousPortfolioLearning:
+        "Prática com HTML, CSS e JavaScript: layouts responsivos, eventos do DOM, tradução dinâmica e preferências de tema e idioma salvas no localStorage.",
+      previousPortfolioCaption: "Interface real · portfólio anterior",
       projectDetails: "O problema e o que estou aprendendo",
       axisDescription:
         "Mais clareza nas finanças do dia a dia. Uma aplicação web para registrar entradas e saídas, organizar lançamentos por categoria e filtrar o histórico.",
